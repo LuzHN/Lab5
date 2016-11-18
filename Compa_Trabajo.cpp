@@ -6,5 +6,5 @@ void Compa_Trabajo::setDepartamento(string Departamento){
 }
 
 string Compa_Trabajo::getDepartamento(){
-	return Departamento;
+	return this->Departamento;
 }
