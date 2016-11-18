@@ -1,11 +1,15 @@
 #include <iostream>
 #include "Contacto.h"
+#include <vector>
+
 
 using namespace std;
 
 int main(){
 
 	int opcion = 0;
+
+	vector<Contacto*> contactos;
 
 	while(opcion < 6){
 
