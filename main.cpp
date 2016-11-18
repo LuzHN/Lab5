@@ -1,5 +1,13 @@
 #include <iostream>
 #include "Contacto.h"
+#include "Amigos.h"
+#include "Pareja.h"
+#include "Amantes.h"
+#include "Bloqueados.h"
+#include "Compa_Clase.h"
+#include "Compa_Trabajo.h"
+#include "Familiares.h"
+
 #include <vector>
 
 
@@ -24,6 +32,24 @@ int main(){
 
 		switch(opcion){
 			case 1:{ // agregar contacto
+
+				
+
+				string nombre = "";
+				string numero = "";
+				string correo = "";
+
+				cout << "Ingrese nombre de contacto:  " ;
+				cin >> nombre;
+
+				cout << "Ingrese numero de contacto:  ";
+				cin >> numero;
+
+				cout << "Ingrese correo de contacto:  ";
+				cin >>  correo;
+
+
+
 				int opcioncontactos = 0;
 				cout << endl << "=================== ¿Que tipo de contacto? =======================" <<
 				endl << "1. Amigos" << endl << 
@@ -37,7 +63,8 @@ int main(){
 				cin >> opcioncontactos;
 
 				if(opcioncontactos == 1){
-					
+					Contacto* cont = new Amigos();
+					cont -> setNombre(nombre);
 				}
 				else if(opcioncontactos == 2){
 

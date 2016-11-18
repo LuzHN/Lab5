@@ -2,7 +2,7 @@
 #define AMIGOS_H
 #include "Contacto.h"
 
-class Amigos:Contacto
+class Amigos: public Contacto
 {
 protected:
 	int nivel_amigo;
