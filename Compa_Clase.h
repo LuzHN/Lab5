@@ -2,7 +2,7 @@
 #define COMPA_CLASE_H
 #include "Contacto.h"
 
-class Compa_Clase:Contacto
+class Compa_Clase: public Contacto
 {
 protected:
 	string Clase;

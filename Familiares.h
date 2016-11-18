@@ -1,6 +1,6 @@
 #include "Contacto.h"
 
-class Familiares : Contacto{
+class Familiares : public Contacto{
 	protected:
 
 		string RelacionFam;

@@ -5,7 +5,7 @@
 #define PAREJA_H
 #include "Contacto.h"
 
-class Pareja:Contacto
+class Pareja: public Contacto
 {
 protected:
 	string Fecha;

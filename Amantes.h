@@ -1,6 +1,6 @@
 #include "Contacto.h"
 
-class Amantes : Contacto{
+class Amantes : public Contacto{
 	protected:
 		string HorarioDisp;
 

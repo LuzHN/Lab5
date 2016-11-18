@@ -2,7 +2,7 @@
 #define COMPA_TRABAJO_H
 #include "Contacto.h"
 
-class Compa_Trabajo:Contacto
+class Compa_Trabajo: public Contacto
 {
 protected:
 	string Departamento;
