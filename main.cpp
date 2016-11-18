@@ -9,6 +9,9 @@
 #include "Familiares.h"
 
 #include <vector>
+#include <sstream>
+
+
 
 
 using namespace std;
@@ -112,16 +115,101 @@ int main(){
 			}
 			case 2:{ //listar contacto
 
-				for (int i = 0; i < contactos.size(); ++i){
+				stringstream ss;
+				cout << endl;
+				ss << "Amigos: " << endl;
 
-
+				for (int j = 0; j < contactos.size(); ++j){
 					
-					if( dynamic_cast <Amigos*>(contactos[i]) != NULL){
+					if( dynamic_cast <Amigos*> (contactos[j]) != NULL){
+						Amigos* am = dynamic_cast <Amigos*> (contactos[j]);
+						ss << endl << "  " <<  "Nombre: " <<  am -> getNombre() << " ; Correo: " << am -> getCorreo() << " ; Numero: " << am ->getNumero() 
+						<< " ; Nivel Amigo: " << am -> getNivelAmigo();
+						ss << endl;
+					}
 
-						Amigos* am = dynamic_cast <Amigos*>(contactos[i]);
-
-					}	
 				}
+
+				ss << endl << "Pareja: " << endl;
+
+				for (int j = 0; j < contactos.size(); ++j){
+					
+					if( dynamic_cast <Pareja*> (contactos[j]) != NULL){
+						Pareja* par = dynamic_cast <Pareja*> (contactos[j]);
+						ss << endl << "  " <<  "Nombre: " <<  par -> getNombre() << " ; Correo: " << par -> getCorreo() << " ; Numero: " << par ->getNumero() 
+						<< " ; Fecha: " << par -> getFecha();
+						ss << endl;
+					}
+
+				}
+
+				ss << endl << "Compañeros de Trabajo: " << endl;
+
+				for (int j = 0; j < contactos.size(); ++j){
+					
+					if( dynamic_cast <Compa_Trabajo*> (contactos[j]) != NULL){
+						Compa_Trabajo* trab = dynamic_cast <Compa_Trabajo*> (contactos[j]);
+						ss << endl << "  " << "Nombre: " <<  trab -> getNombre() << " ; Correo: " << trab -> getCorreo() << " ; Numero: " << trab ->getNumero() 
+						<< " ; Dept: " << trab -> getDepartamento();
+						ss << endl;
+					}
+
+				}
+
+				ss << endl << "Compañeros de Clase: " << endl;
+
+				for (int j = 0; j < contactos.size(); ++j){
+					
+					if( dynamic_cast <Compa_Clase*> (contactos[j]) != NULL){
+						Compa_Clase* clase = dynamic_cast <Compa_Clase*> (contactos[j]);
+						ss << endl << "  " << "Nombre: " <<  clase -> getNombre() << " ; Correo: " << clase -> getCorreo() << " ; Numero: " << clase ->getNumero() 
+						<< " ; Clase: " << clase -> getClase();
+						ss << endl;
+					}
+
+				}
+
+				ss << endl <<  "Familiares: " << endl;
+
+				for (int j = 0; j < contactos.size(); ++j){
+					
+					if( dynamic_cast <Familiares*> (contactos[j]) != NULL){
+						Familiares* fams = dynamic_cast <Familiares*> (contactos[j]);
+						ss << endl << "  " << "Nombre: " <<  fams -> getNombre() << " ; Correo: " << fams -> getCorreo() << " ; Numero: " << fams ->getNumero() 
+						<< " ; Relacion de Familia: " << fams -> getRelacionFam();
+						ss << endl;
+					}
+
+				}
+
+				ss << endl << "Amantes: " << endl;
+
+				for (int j = 0; j < contactos.size(); ++j){
+					
+					if( dynamic_cast <Amantes*> (contactos[j]) != NULL){
+						Amantes* amores = dynamic_cast <Amantes*> (contactos[j]);
+						ss << endl << "  " << "Nombre: " <<  amores -> getNombre() << " ; Correo: " << amores -> getCorreo() << " ; Numero: " << amores ->getNumero() 
+						<< " ; Horario Disponible: " << amores -> getHorarioDisp();
+						ss << endl;
+					}
+
+				}
+
+				ss << endl << "Bloqueados: " << endl;
+
+				for (int j = 0; j < contactos.size(); ++j){
+					
+					if( dynamic_cast <Compa_Clase*> (contactos[j]) != NULL){
+						Bloqueados* blocked = dynamic_cast <Bloqueados*> (contactos[j]);
+						ss << endl << "  " << "Nombre: " <<  blocked -> getNombre() << " ; Correo: " << blocked -> getCorreo() << " ; Numero: " << blocked ->getNumero() 
+						<< " ; Nivel de Odio: " << blocked -> getNivel();
+						ss << endl;
+					}
+
+				}
+				
+
+				cout << ss.str();
 
 				break;
 			}
