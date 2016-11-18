@@ -82,9 +82,6 @@ int main(){
 
 							contactos.push_back(amigos);
 
-							cout << endl;
-							cout << "fin de if";
-
 							
 						}
 					}
