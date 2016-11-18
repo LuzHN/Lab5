@@ -81,9 +81,9 @@ int main(){
 							amigos -> setNivelAmigo(nivel);
 
 							contactos.push_back(amigos);
-
-							
 						}
+						
+					
 					}
 				}
 				else if(opcioncontactos == 2){
@@ -111,6 +111,15 @@ int main(){
 				break;
 			}
 			case 2:{ //listar contacto
+
+				for (int i = 0; i < contactos.size(); ++i){
+					
+					if( dynamic_cast <Amigos*>(contactos[i]) != NULL){
+
+						Amigos* am = dynamic_cast <Amigos*>(contactos[i]);
+
+					}	
+				}
 
 				break;
 			}

@@ -1,4 +1,7 @@
 #include "Contacto.h"
+#include <sstream>
+
+using std:: stringstream;
 
 Contacto :: Contacto(){
 
@@ -29,6 +32,8 @@ void Contacto :: setCorreo(string pcorreo){
 }
 
 void Contacto :: toString(){
+
+	stringstream ss;
 
 	
 }

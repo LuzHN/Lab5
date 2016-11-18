@@ -27,7 +27,7 @@ class Contacto{
 		virtual string getTipo();
 		virtual void setTipo (string);
 
-		virtual void toString();
+		virtual string toString();
 };
 
 
