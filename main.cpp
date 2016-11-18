@@ -17,10 +17,11 @@
 
 using namespace std;
 
+
 int main(){
 
 	int opcion = 0;
-
+	int cont_pareja = 0;
 	vector<Contacto*> contactos;
 	stringstream ss;
 
@@ -43,12 +44,26 @@ int main(){
 				string nombre = "";
 				string numero = "";
 				string correo = "";
-
+				bool Numero_repetido = false;
 				cout << "Ingrese nombre de contacto:  " ;
 				cin >> nombre;
-
-				cout << "Ingrese numero de contacto:  ";
-				cin >> numero;
+				do
+				{
+					cout << "Ingrese numero de contacto:  ";
+					cin >> numero;
+					for (int i = 0; i < contactos.size(); ++i)
+					{
+						if(contactos.at(i)->getNumero() == numero){
+							Numero_repetido=true;
+							cout<<endl<<"Este numero ya esta registrado"<<endl;
+						}else{
+							Numero_repetido=false;
+						}
+					}
+				} while (Numero_repetido!=false);
+				
+				
+				
 
 				cout << "Ingrese correo de contacto:  ";
 				cin >>  correo;
@@ -90,17 +105,23 @@ int main(){
 					}
 				}
 				else if(opcioncontactos == 2){
-					Contacto* cont = new Pareja();
-					cont -> setNombre(nombre);
-					cont -> setNumero(numero);
-					cont -> setCorreo(correo);
-					cout << endl << "Ingrese fecha que empezaron a salir: ";
-					string fecha;
-					cin>>fecha;
-					if( (dynamic_cast<Pareja*> (cont)) != NULL){
-						Pareja* pareja = dynamic_cast<Pareja*> (cont);
-						pareja -> setFecha(fecha);
-						contactos.push_back(pareja);
+					if(cont_pareja==0){
+						Contacto* cont = new Pareja();
+						cont -> setNombre(nombre);
+						cont -> setNumero(numero);
+						cont -> setCorreo(correo);
+						cout << endl << "Ingrese fecha que empezaron a salir: ";
+						string fecha;
+						cin>>fecha;
+						if( (dynamic_cast<Pareja*> (cont)) != NULL){
+							Pareja* pareja = dynamic_cast<Pareja*> (cont);
+							pareja -> setFecha(fecha);
+							contactos.push_back(pareja);
+							cont_pareja++;
+						}
+
+					}else{
+						cout<<endl<<"Ya tiene pareja, no sea vivo"<<endl;
 					}
 				}
 				else if(opcioncontactos == 3){
@@ -126,9 +147,9 @@ int main(){
 					string clases;
 					cin>>clases;
 					if( (dynamic_cast<Compa_Clase*> (cont)) != NULL){
-						Compa_Clase* clase = dynamic_cast<Compa_Clase*> (cont);
-						clase -> setClase(clases);
-						contactos.push_back(clase);
+						Compa_Clase* companion = dynamic_cast<Compa_Clase*> (cont);
+						companion -> setClase(clases);
+						contactos.push_back(companion);
 					}
 				}
 				else if(opcioncontactos == 5){
@@ -225,12 +246,11 @@ int main(){
 				ss << endl << "Compañeros de Clase: " << endl;
 
 				for (int j = 0; j < contactos.size(); ++j){
-					
 					if( dynamic_cast <Compa_Clase*> (contactos[j]) != NULL){
 						Compa_Clase* clase = dynamic_cast <Compa_Clase*> (contactos[j]);
-						ss << endl << "  " << "Nombre: " <<  clase -> getNombre() << " ; Correo: " << clase -> getCorreo() << " ; Numero: " << clase ->getNumero() 
-						<< " ; Clase: " << clase -> getClase();
-						ss << endl;
+						string tr = "  Nombre: " + clase -> getNombre() + " ; Correo: " + clase -> getCorreo() + " ; Numero: " + clase ->getNumero() 
+						+ " ; Clase: " + clase -> getClase();
+						ss<<tr;
 					}
 
 				}
@@ -265,13 +285,12 @@ int main(){
 
 				for (int j = 0; j < contactos.size(); ++j){
 					
-					if( dynamic_cast <Compa_Clase*> (contactos[j]) != NULL){
+					if( dynamic_cast <Bloqueados*> (contactos[j]) != NULL){
 						Bloqueados* blocked = dynamic_cast <Bloqueados*> (contactos[j]);
 						ss << endl << "  " << "Nombre: " <<  blocked -> getNombre() << " ; Correo: " << blocked -> getCorreo() << " ; Numero: " << blocked ->getNumero() 
 						<< " ; Nivel de Odio: " << blocked -> getNivel();
 						ss << endl;
 					}
-
 				}
 				
 
@@ -292,6 +311,9 @@ int main(){
 				if(posicion < 0 || posicion > contactos.size()){
 					cout << "Posicion no valida";
 				}else{
+					if( (dynamic_cast<Pareja*> (contactos.at(posicion))) != NULL){
+						cont_pareja=0;
+					}
 					contactos.erase(contactos.begin() + posicion);
 					cout<<endl<<"contacto borrado"<<endl;
 				}

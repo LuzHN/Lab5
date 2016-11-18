@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <sstream>
-
 using namespace std;
 
 class Contacto{
@@ -12,6 +11,7 @@ class Contacto{
 		string nombre;
 		string numero;
 		string correo;
+		string tipo;
 
 	public:
 		Contacto();
