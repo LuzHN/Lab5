@@ -10,7 +10,8 @@
 
 #include <vector>
 #include <sstream>
-
+#include <iostream>
+#include <fstream>
 
 
 
@@ -21,6 +22,7 @@ int main(){
 	int opcion = 0;
 
 	vector<Contacto*> contactos;
+	stringstream ss;
 
 	while(opcion != 5){
 
@@ -85,27 +87,91 @@ int main(){
 
 							contactos.push_back(amigos);
 						}
-						
-					
 					}
 				}
 				else if(opcioncontactos == 2){
-
+					Contacto* cont = new Pareja();
+					cont -> setNombre(nombre);
+					cont -> setNumero(numero);
+					cont -> setCorreo(correo);
+					cout << endl << "Ingrese fecha que empezaron a salir: ";
+					string fecha;
+					cin>>fecha;
+					if( (dynamic_cast<Pareja*> (cont)) != NULL){
+						Pareja* pareja = dynamic_cast<Pareja*> (cont);
+						pareja -> setFecha(fecha);
+						contactos.push_back(pareja);
+					}
 				}
 				else if(opcioncontactos == 3){
-
+					Contacto* cont = new Compa_Trabajo();
+					cont -> setNombre(nombre);
+					cont -> setNumero(numero);
+					cont -> setCorreo(correo);
+					cout << endl << "Ingrese Departamento donde trabajan: ";
+					string departamento;
+					cin>>departamento;
+					if( (dynamic_cast<Compa_Trabajo*> (cont)) != NULL){
+						Compa_Trabajo* trabajo = dynamic_cast<Compa_Trabajo*> (cont);
+						trabajo -> setDepartamento(departamento);
+						contactos.push_back(trabajo);
+					}
 				}
 				else if(opcioncontactos == 4){
-
+					Contacto* cont = new Compa_Clase();
+					cont -> setNombre(nombre);
+					cont -> setNumero(numero);
+					cont -> setCorreo(correo);
+					cout << endl << "Ingrese que clase llevaron: ";
+					string clases;
+					cin>>clases;
+					if( (dynamic_cast<Compa_Clase*> (cont)) != NULL){
+						Compa_Clase* clase = dynamic_cast<Compa_Clase*> (cont);
+						clase -> setClase(clases);
+						contactos.push_back(clase);
+					}
 				}
 				else if(opcioncontactos == 5){
-
+					Contacto* cont = new Familiares();
+					cont -> setNombre(nombre);
+					cont -> setNumero(numero);
+					cont -> setCorreo(correo);
+					cout << endl << "Ingrese relacion Familiar: ";
+					string relacion;
+					cin>>relacion;
+					if( (dynamic_cast<Familiares*> (cont)) != NULL){
+						Familiares* Familiar = dynamic_cast<Familiares*> (cont);
+						Familiar -> setRelacionFam(relacion);
+						contactos.push_back(Familiar);
+					}
 				}
 				else if(opcioncontactos == 6){
-
+					Contacto* cont = new Amantes();
+					cont -> setNombre(nombre);
+					cont -> setNumero(numero);
+					cont -> setCorreo(correo);
+					cout << endl << "Ingrese Horario de la sexo servidora: ";
+					string horario;
+					cin>>horario;
+					if( (dynamic_cast<Amantes*> (cont)) != NULL){
+						Amantes* amante = dynamic_cast<Amantes*> (cont);
+						amante -> setHorarioDisp(horario);
+						contactos.push_back(amante);
+					}
 				}
 				else if(opcioncontactos == 7){
-
+					Contacto* cont = new Bloqueados();
+					cont -> setNombre(nombre);
+					cont -> setNumero(numero);
+					cont -> setCorreo(correo);
+					cout << endl << "Ingrese nivel de odio: ";
+					int nivel;
+					cin>>nivel;
+					if( (dynamic_cast<Bloqueados*> (cont)) != NULL){
+						Bloqueados* bloqueado = dynamic_cast<Bloqueados*> (cont);
+						bloqueado -> setNivel(nivel);
+						contactos.push_back(bloqueado);
+					}
 				} 
 				else if(opcioncontactos == 8){
 
@@ -114,8 +180,8 @@ int main(){
 				break;
 			}
 			case 2:{ //listar contacto
-
-				stringstream ss;
+				ss.str("");
+				
 				cout << endl;
 				ss << "Amigos: " << endl;
 
@@ -214,11 +280,29 @@ int main(){
 				break;
 			}
 			case 3:{ //eliminar contacto
+				for (int i = 0; i < contactos.size(); ++i)
+				{
+					cout << "Posicion: "<<i<<" ; Nombre: " << contactos[i] -> getNombre() << endl;
+				}
+
+				int posicion = 0;
+				cout<< "Ingrese poscion a borrar:	";
+				cin >> posicion;
+
+				if(posicion < 0 || posicion > contactos.size()){
+					cout << "Posicion no valida";
+				}else{
+					contactos.erase(contactos.begin() + posicion);
+					cout<<endl<<"contacto borrado"<<endl;
+				}
 
 				break;
 			}
 			case 4:{ //exportar contactos
-
+				ofstream texto;
+				texto.open("Contactos.txt");
+				texto << ss.str();
+				texto.close();
 				break;
 			}
 			case 5:{ //salir
