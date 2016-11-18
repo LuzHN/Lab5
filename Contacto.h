@@ -13,6 +13,7 @@ class Contacto{
 
 	public:
 		Contacto();
+		~Contacto();
 		virtual string getNombre();
 		virtual void setNombre(string);
 
