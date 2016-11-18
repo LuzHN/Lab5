@@ -24,8 +24,11 @@ class Contacto{
 		virtual string getCorreo();
 		virtual void setCorreo(string);
 
+		/*
+		
 		virtual string getTipo();
 		virtual void setTipo (string);
+		*/
 
 		virtual string toString();
 };

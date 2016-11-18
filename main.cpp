@@ -67,7 +67,7 @@ int main(){
 					cont -> setNombre(nombre);
 					cont -> setNumero(numero);
 					cont -> setCorreo(correo);
-					cont -> setTipo("Amigos");
+					//cont -> setTipo("Amigos");
 
 					cout << endl << "Ingrese nivel de amigo: ";
 					int nivel = 0;
@@ -113,6 +113,8 @@ int main(){
 			case 2:{ //listar contacto
 
 				for (int i = 0; i < contactos.size(); ++i){
+
+
 					
 					if( dynamic_cast <Amigos*>(contactos[i]) != NULL){
 
