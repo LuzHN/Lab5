@@ -6,5 +6,5 @@ void Pareja::setFecha(string Fecha){
 }
 
 string Pareja::getFecha(){
-	return Fecha;
+	return this->Fecha;
 }

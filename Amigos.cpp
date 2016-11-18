@@ -9,5 +9,5 @@ void Amigos::setNivelAmigo(int nivel_amigo){
 }
 
 int Amigos::getNivelAmigo(){
-	return nivel_amigo;
+	return this->nivel_amigo;
 }
