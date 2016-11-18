@@ -19,9 +19,9 @@ int main(){
 
 	vector<Contacto*> contactos;
 
-	while(opcion < 6){
+	while(opcion != 5){
 
-		cout << "=================== Menu =======================" <<
+		cout << endl << "=================== Menu =======================" <<
 		endl << "1. Agregar Contacto" << endl << 
 				"2. Listar contactos" << endl << 
 				"3. Eliminar Contactos" << endl <<
@@ -65,6 +65,29 @@ int main(){
 				if(opcioncontactos == 1){
 					Contacto* cont = new Amigos();
 					cont -> setNombre(nombre);
+					cont -> setNumero(numero);
+					cont -> setCorreo(correo);
+					cont -> setTipo("Amigos");
+
+					cout << endl << "Ingrese nivel de amigo: ";
+					int nivel = 0;
+					cin >> nivel;
+					if(nivel < 0 || nivel > 100){
+						cout << endl << "Valor de nivel de amigo no válido";
+					}else{
+						if( (dynamic_cast<Amigos*> (cont)) != NULL){
+							Amigos* amigos = dynamic_cast<Amigos*> (cont);
+
+							amigos -> setNivelAmigo(nivel);
+
+							contactos.push_back(amigos);
+
+							cout << endl;
+							cout << "fin de if";
+
+							
+						}
+					}
 				}
 				else if(opcioncontactos == 2){
 

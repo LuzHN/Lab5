@@ -1,6 +1,6 @@
 #include "Contacto.h"
 
-class Bloqueados : Contacto{
+class Bloqueados : public Contacto{
 
 
 	protected:

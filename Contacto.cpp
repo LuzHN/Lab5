@@ -28,3 +28,9 @@ void Contacto :: setCorreo(string pcorreo){
 	correo = pcorreo;
 }
 
+void Contacto :: toString(){
+
+	
+}
+
+

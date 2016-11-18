@@ -1,8 +1,9 @@
 #include "Amigos.h"
 
-/*Amigos::Amigos(int nivel_amigo){
-	this->nivel_amigo=nivel_amigo;
-}*/
+Amigos::Amigos(){
+	
+}
+
 
 void Amigos::setNivelAmigo(int nivel_amigo){
 	this->nivel_amigo=nivel_amigo;
