@@ -1,4 +1,5 @@
 #include "Contacto.h"
+#include <sstream>
 
 class Familiares : public Contacto{
 	protected:

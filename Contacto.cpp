@@ -1,8 +1,6 @@
 #include "Contacto.h"
 
-
-Contacto :: Contacto(){
-
+Contacto::Contacto(){
 }
 
 string Contacto :: getNombre(){
@@ -31,8 +29,9 @@ void Contacto :: setCorreo(string pcorreo){
 
 string  Contacto :: toString(){
 
-
-
 }
 
+Contacto::~Contacto(){
+	
+}
 

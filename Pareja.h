@@ -1,5 +1,6 @@
 #include "Contacto.h"
 #include <string>
+#include <sstream>
 
 #ifndef PAREJA_H
 #define PAREJA_H

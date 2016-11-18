@@ -1,6 +1,5 @@
 #include "Bloqueados.h"
-
-Bloqueados :: Bloqueados(){
+Bloqueados::Bloqueados(){
 
 }
 
@@ -10,4 +9,7 @@ int Bloqueados :: getNivel(){
 
 void Bloqueados :: setNivel(int pnivelodio){
 	nivelodio = pnivelodio;
+}
+Bloqueados::~Bloqueados(){
+	
 }

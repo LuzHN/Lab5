@@ -1,6 +1,5 @@
 #include "Familiares.h"
-
-Familiares :: Familiares(){
+Familiares::Familiares(){
 
 }
 
@@ -10,4 +9,7 @@ string Familiares :: getRelacionFam(){
 
 void Familiares :: setRelacionFam(string pRelacionFam){
 	RelacionFam = pRelacionFam;
+}
+Familiares::~Familiares(){
+	
 }

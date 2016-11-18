@@ -1,6 +1,5 @@
 #include "Amantes.h"
-
-Amantes :: Amantes(){
+Amantes::Amantes(){
 
 }
 
@@ -10,4 +9,8 @@ string Amantes :: getHorarioDisp(){
 
 void Amantes :: setHorarioDisp(string pHorarioDisp){
 	HorarioDisp = pHorarioDisp;
+}
+
+Amantes::~Amantes(){
+	
 }

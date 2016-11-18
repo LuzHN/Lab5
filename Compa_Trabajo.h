@@ -1,8 +1,9 @@
 #ifndef COMPA_TRABAJO_H
 #define COMPA_TRABAJO_H
 #include "Contacto.h"
+#include <sstream>
 
-class Compa_Trabajo: public Contacto
+class Compa_Trabajo : public Contacto
 {
 protected:
 	string Departamento;
@@ -11,7 +12,6 @@ public:
 	void setDepartamento(string);
 	string getDepartamento();
 	~Compa_Trabajo();
-	
 };
 
 #endif

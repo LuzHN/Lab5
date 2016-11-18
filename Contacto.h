@@ -2,6 +2,8 @@
 #define Contacto_h
 
 #include <iostream>
+#include <sstream>
+
 using namespace std;
 
 class Contacto{
@@ -10,7 +12,6 @@ class Contacto{
 		string nombre;
 		string numero;
 		string correo;
-		string tipo;
 
 	public:
 		Contacto();
@@ -23,12 +24,6 @@ class Contacto{
 
 		virtual string getCorreo();
 		virtual void setCorreo(string);
-
-		/*
-		
-		virtual string getTipo();
-		virtual void setTipo (string);
-		*/
 
 		virtual string toString();
 };

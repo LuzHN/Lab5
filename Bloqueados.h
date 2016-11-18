@@ -1,9 +1,8 @@
 #include "Contacto.h"
-
+#include <sstream>
 class Bloqueados : public Contacto{
 
-
-	protected:
+	private:
 		int nivelodio;
 
 	public:

@@ -1,4 +1,5 @@
 #include "Contacto.h"
+#include <sstream>
 
 class Amantes : public Contacto{
 	protected:
@@ -7,8 +8,6 @@ class Amantes : public Contacto{
 	public:
 		Amantes();
 		~Amantes();
-
 		string getHorarioDisp();
 		void setHorarioDisp(string);
-		
 };

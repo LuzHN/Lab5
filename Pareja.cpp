@@ -1,5 +1,8 @@
 #include "Pareja.h"
 
+Pareja::Pareja(){
+
+}
 
 void Pareja::setFecha(string Fecha){
 	this->Fecha=Fecha;
@@ -7,4 +10,8 @@ void Pareja::setFecha(string Fecha){
 
 string Pareja::getFecha(){
 	return this->Fecha;
+}
+
+Pareja::~Pareja(){
+	
 }
